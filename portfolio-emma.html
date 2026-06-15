@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>Emma Jeannette Rogomnoma Zongo — Sécurité Informatique & Administration Système</title>
+<meta name="description" content="Portfolio d'Emma Jeannette Rogomnoma Zongo, étudiante Master 2 Sécurité Informatique — SOC, pentest, administration réseau & développement sécurisé.">
+<meta name="author" content="Emma Jeannette Rogomnoma Zongo">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2E8D9;--bg-mid:#EAD5B5;--bg-dark:#1a0f05;
+  --accent:#8B4513;--accent2:#B5621E;--accent-em:#6B2F00;
+  --text:#1a0f05;--text-mid:#3d1f00;--text-muted:#5c3d1a;
+  --c-text:#F2E8D9;--c-accent:#C07830;--c-muted:#C09060;
+  --white:#fff;
+  --font-serif:'Cormorant Garamond',Georgia,serif;
+  --font-sans:'Jost',system-ui,sans-serif;
+  --max:1100px
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-serif);background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul,ol{list-style:none}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shimmer{0%,100%{opacity:.4}50%{opacity:1}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(242,232,217,.96);backdrop-filter:blur(18px);border-bottom:1.5px solid rgba(139,69,19,.18);transition:all .35s}
+.logo{font-size:18px;font-weight:400;letter-spacing:3px;color:var(--text)}
+.logo-accent{color:var(--accent)}
+.logo-sub{font-family:var(--font-sans);font-size:10px;font-weight:500;letter-spacing:2px;color:var(--accent-em);margin-left:6px}
+.nav-links{display:flex;gap:24px}
+.nav-link{font-family:var(--font-sans);font-size:10.5px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);background:none;border:none;border-bottom:1.5px solid transparent;cursor:pointer;padding:4px 0;transition:color .2s,border-color .2s}
+.nav-link:hover,.nav-link.active{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:80px 5% 60px;position:relative;overflow:hidden;background:linear-gradient(145deg,#F2E8D9 0%,#E8D5B7 55%,#D9B98A 100%)}
+.hero-inner{animation:fadeUp .9s ease forwards;max-width:740px;position:relative;z-index:1}
+.hero-over{font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:24px;display:flex;align-items:center;gap:14px}
+.hero-line{display:block;width:44px;height:2px;background:var(--accent);flex-shrink:0}
+.hero-name{font-size:clamp(48px,8vw,92px);font-weight:400;line-height:.92;color:var(--text);letter-spacing:-2.5px;margin-bottom:10px}
+.hero-name em{font-style:italic;color:var(--accent-em)}
+.hero-sub{font-family:var(--font-sans);font-size:15px;line-height:1.95;color:var(--text-mid);max-width:540px;margin:28px 0 44px;font-weight:400}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.hero-socials{display:flex;gap:10px;margin-top:48px}
+.deco-sq{position:absolute;pointer-events:none;border:1.5px solid rgba(139,69,19,.15)}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-txt{font-family:var(--font-sans);font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent)}
+.scroll-bar{width:2px;height:44px;background:linear-gradient(to bottom,var(--accent),transparent);animation:shimmer 2s ease-in-out infinite}
+
+/* BUTTONS */
+.btn-primary{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;padding:14px 36px;background:linear-gradient(135deg,#8B4513,#B5621E);color:#fff;border:none;cursor:pointer;transition:transform .3s,box-shadow .3s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(139,69,19,.45)}
+.btn-ghost{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:12px 24px;background:transparent;color:var(--accent-em);border:2px solid rgba(139,69,19,.55);cursor:pointer;transition:all .2s}
+.btn-ghost:hover{background:rgba(139,69,19,.1);border-color:var(--accent);color:var(--accent)}
+.btn-ghost--sm{padding:9px 16px;font-size:10px}
+
+/* SECTIONS */
+.section{padding:90px 5%;max-width:var(--max);margin:0 auto}
+.section-label{display:flex;align-items:center;gap:12px;margin-bottom:52px}
+.s-num{font-family:var(--font-sans);font-size:11px;font-weight:600;color:var(--accent);letter-spacing:3px}
+.s-line{width:36px;height:2px;background:var(--accent);opacity:.7;flex-shrink:0}
+.s-title{font-size:40px;font-weight:400;letter-spacing:-1px;color:var(--text)}
+.divider{display:flex;align-items:center;gap:24px;padding:0 5%;opacity:.35}
+.divider-line{flex:1;height:1.5px;background:var(--accent)}
+.divider-star{color:var(--accent);font-size:20px}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:72px;align-items:start}
+.avatar{background:linear-gradient(145deg,#C08040,#8B4513);aspect-ratio:3/4;max-width:280px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.avatar::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 25%,rgba(255,255,255,.2),transparent);pointer-events:none}
+.avatar-letter{font-size:80px;font-weight:300;color:rgba(255,255,255,.6);font-style:italic;position:relative;z-index:1}
+.meta-list{margin-top:24px}
+.meta-row{display:flex;gap:14px;font-family:var(--font-sans);font-size:13px;margin-bottom:9px}
+.meta-k{color:var(--accent);min-width:90px;font-weight:600}
+.meta-v{color:var(--text-mid)}
+.certs{font-family:var(--font-sans);font-size:10.5px;font-weight:600;letter-spacing:1.5px;color:#fff;margin-top:14px;text-transform:uppercase;background:var(--accent);padding:9px 14px;display:inline-block;line-height:2}
+.about-p{font-family:var(--font-sans);font-size:14.5px;line-height:1.95;color:var(--text-mid);margin-bottom:18px;font-weight:400}
+.about-p strong{color:var(--text);font-weight:600}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:32px}
+.stat-card{text-align:center;padding:18px 8px;background:rgba(139,69,19,.09);border:1.5px solid rgba(139,69,19,.28)}
+.stat-n{font-size:30px;font-weight:400;color:var(--accent);line-height:1;display:block}
+.stat-l{font-family:var(--font-sans);font-size:9px;font-weight:600;letter-spacing:1px;color:var(--accent-em);margin-top:6px;text-transform:uppercase;display:block}
+
+/* SKILLS */
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.skill-card{background:var(--white);border:1.5px solid rgba(139,69,19,.2);padding:24px;transition:all .3s;cursor:default}
+.skill-card:hover{border-color:var(--accent);transform:translateY(-5px);box-shadow:0 18px 36px rgba(139,69,19,.15)}
+.skill-icon{font-size:24px;margin-bottom:12px;display:block}
+.skill-title{font-size:17px;font-weight:400;color:var(--text);margin-bottom:12px;letter-spacing:-.2px}
+.tag-list{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.tag{font-family:var(--font-sans);font-size:10px;font-weight:500;background:rgba(139,69,19,.09);color:var(--accent-em);border:1.5px solid rgba(139,69,19,.28);padding:3px 9px}
+
+/* PROJECTS */
+.projects-bg{padding:80px 5%;background:linear-gradient(180deg,var(--bg-mid) 0%,var(--bg) 100%)}
+.projects-inner{max-width:var(--max);margin:0 auto}
+.project-row{border-bottom:1.5px solid rgba(139,69,19,.2);padding:28px 0;display:grid;grid-template-columns:72px 1fr auto;gap:26px;align-items:start;transition:background .2s}
+.project-row:hover{background:rgba(139,69,19,.03)}
+.p-year{font-family:var(--font-sans);font-size:11px;font-weight:600;color:var(--accent);letter-spacing:2px;padding-top:3px}
+.p-cat{font-family:var(--font-sans);font-size:10px;font-weight:600;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:7px}
+.p-title{font-size:21px;font-weight:400;color:var(--text);margin-bottom:9px;letter-spacing:-.3px;transition:color .2s;line-height:1.2}
+.project-row:hover .p-title{color:var(--accent)}
+.p-desc{font-family:var(--font-sans);font-size:13.5px;line-height:1.85;color:var(--text-mid);font-weight:400;margin-bottom:12px;max-width:560px}
+.p-links{display:flex;flex-direction:column;gap:8px;padding-top:24px;min-width:90px}
+.p-badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-sans);font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--accent);background:rgba(139,69,19,.1);border:1px solid rgba(139,69,19,.25);padding:3px 8px;margin-bottom:6px}
+
+/* CERTIFICATIONS */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px}
+.cert-card{background:var(--white);border:1.5px solid rgba(139,69,19,.2);padding:20px 22px;display:flex;gap:14px;align-items:flex-start;transition:all .3s}
+.cert-card:hover{border-color:var(--accent);box-shadow:0 10px 24px rgba(139,69,19,.1)}
+.cert-icon{font-size:26px;flex-shrink:0;margin-top:2px}
+.cert-name{font-size:15px;font-weight:400;color:var(--text);margin-bottom:4px;line-height:1.3}
+.cert-org{font-family:var(--font-sans);font-size:11px;font-weight:600;color:var(--accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.cert-date{font-family:var(--font-sans);font-size:11px;color:var(--text-muted)}
+.cert-desc{font-family:var(--font-sans);font-size:12px;color:var(--text-muted);margin-top:5px;line-height:1.55}
+
+/* CONTACT */
+.contact-bg{padding:90px 5%;background:var(--bg-dark)}
+.contact-inner{max-width:660px;margin:0 auto}
+.c-over{font-family:var(--font-sans);font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--accent2);margin-bottom:20px;text-align:center}
+.c-h{font-size:clamp(40px,6vw,68px);font-weight:400;letter-spacing:-2px;color:var(--c-text);line-height:1;text-align:center}
+.c-h em{font-style:italic;color:var(--c-accent)}
+.c-sub{font-family:var(--font-sans);font-size:14px;line-height:1.9;color:var(--c-muted);margin-top:20px;text-align:center}
+.form-wrap{margin-top:44px;display:flex;flex-direction:column;gap:12px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:5px}
+.field-label{font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--c-muted)}
+.field-error{font-family:var(--font-sans);font-size:11px;color:#ff6b6b;min-height:14px}
+.input{width:100%;background:rgba(242,232,217,.07);border:1.5px solid rgba(181,98,30,.3);padding:13px 15px;font-family:var(--font-sans);font-size:13px;color:var(--c-text);outline:none;transition:border-color .2s;resize:vertical}
+.input:focus{border-color:var(--accent2);box-shadow:0 0 0 3px rgba(181,98,30,.12)}
+.input::placeholder{color:#806040}
+.input.is-invalid{border-color:#ff6b6b}
+.input.is-valid{border-color:#6bcb77}
+.btn-gold{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;padding:14px 42px;background:linear-gradient(135deg,#8B4513,#B5621E);color:#fff;border:none;cursor:pointer;transition:all .3s}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(181,98,30,.42)}
+.social-row{display:flex;justify-content:center;gap:32px;margin-top:48px;padding-top:28px;border-top:1px solid rgba(181,98,30,.2)}
+.soc{font-family:var(--font-sans);font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--c-muted);transition:color .2s}
+.soc:hover{color:var(--c-accent)}
+footer{text-align:center;padding:20px;font-family:var(--font-sans);font-size:10px;font-weight:500;letter-spacing:2.5px;color:var(--accent);border-top:1px solid rgba(139,69,19,.12);text-transform:uppercase}
+
+/* RESPONSIVE */
+@media(max-width:900px){.nav-links{gap:16px}.nav-link{font-size:9.5px;letter-spacing:1.5px}}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .about-grid{grid-template-columns:1fr;gap:36px}
+  .avatar{max-width:200px}
+  .stat-grid{grid-template-columns:1fr 1fr}
+  .project-row{grid-template-columns:1fr;gap:14px}
+  .p-links{flex-direction:row;padding-top:0;flex-wrap:wrap}
+  .form-row{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .section,.projects-bg,.contact-bg{padding:60px 5%}
+  .s-title{font-size:28px}
+  .hero-cta{flex-direction:column;align-items:flex-start}
+  .btn-primary,.btn-ghost{width:100%;justify-content:center}
+  .stat-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="nav" role="navigation" aria-label="Navigation principale">
+  <div class="logo"><span class="logo-accent">E</span>MMAZONGO<span class="logo-sub">· Portfolio</span></div>
+  <ul class="nav-links" role="list">
+    <li><button class="nav-link active" data-target="hero">Accueil</button></li>
+    <li><button class="nav-link" data-target="propos">À propos</button></li>
+    <li><button class="nav-link" data-target="competences">Compétences</button></li>
+    <li><button class="nav-link" data-target="projets">Projets</button></li>
+    <li><button class="nav-link" data-target="certifications">Certifications</button></li>
+    <li><button class="nav-link" data-target="contact">Contact</button></li>
+  </ul>
+</nav>
+
+<!-- ══ HÉROS ══ -->
+<section id="hero" class="hero" aria-labelledby="hero-name">
+  <div class="deco-sq" style="top:14%;right:6%;width:180px;height:180px;transform:rotate(15deg)" aria-hidden="true"></div>
+  <div class="deco-sq" style="top:18%;right:9%;width:110px;height:110px;transform:rotate(15deg);opacity:.5" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="hero-over"><span class="hero-line" aria-hidden="true"></span>Master 2 Sécurité Informatique · Administratrice Réseau & Système</p>
+    <h1 class="hero-name" id="hero-name">Emma Jeannette Rogomnoma<br><em>Zongo.</em></h1>
+    <p class="hero-sub">
+      Ingénieure logiciel spécialisée en cybersécurité. J'ai déployé des SOC complets avec Wazuh,
+      sécurisé des infrastructures réseau critiques avec FreeRADIUS et 802.1X,
+      et conçu des architectures Zero Trust avec Teleport.
+      <!--La sécurité par conception, ma philosophie.-->
+    </p>
+    <div class="hero-cta">
+      <button class="btn-primary" data-target="projets">Voir mes projets →</button>
+      <button class="btn-ghost" data-target="contact">Me contacter</button>
+    </div>
+    <!-- ✏️ Remplacez # par vos vrais liens -->
+    <div class="hero-socials">
+      <a href="https://github.com/VOTRE_USERNAME" target="_blank" rel="noopener noreferrer" class="btn-ghost btn-ghost--sm" aria-label="GitHub">GH</a>
+      <a href="https://linkedin.com/in/VOTRE_PROFIL" target="_blank" rel="noopener noreferrer" class="btn-ghost btn-ghost--sm" aria-label="LinkedIn">LI</a>
+      <a href="#" class="btn-ghost btn-ghost--sm" aria-label="CV PDF">CV</a>
+    </div>
+  </div>
+  <div class="scroll-ind" aria-hidden="true"><span class="scroll-txt">Scroll</span><span class="scroll-bar"></span></div>
+</section>
+
+<!-- ══ À PROPOS ══ -->
+<section id="propos" class="section" aria-labelledby="title-propos">
+  <div class="section-label reveal">
+    <span class="s-num" aria-hidden="true">01</span><span class="s-line" aria-hidden="true"></span>
+    <h2 class="s-title" id="title-propos">À propos de moi</h2>
+  </div>
+  <div class="about-grid">
+    <div class="reveal">
+      <div class="avatar" role="img" aria-label="Photo de profil d'Emma Jeannette Rogomnoma Zongo">
+        <!-- ✏️ Remplacez par <img src="photo.jpg" alt="Emma Jeannette Rogomnoma Zongo"> -->
+        <span class="avatar-letter" aria-hidden="true">EJ</span>
+      </div>
+      <dl class="meta-list">
+        <div class="meta-row"><dt class="meta-k">Prénom&nbsp;Nom</dt><dd class="meta-v">Emma Jeannette Rogomnoma Zongo</dd></div>
+        <div class="meta-row"><dt class="meta-k">Localisation</dt><dd class="meta-v">Ouagadougou, Burkina Faso</dd></div>
+        <div class="meta-row"><dt class="meta-k">Formation</dt><dd class="meta-v">Master 2 Sécurité Informatique (en cours)</dd></div>
+        <div class="meta-row"><dt class="meta-k">Langues</dt><dd class="meta-v">Français · Anglais · Moore</dd></div>
+        <!-- ✏️ Remplacez par votre vraie adresse email -->
+        <div class="meta-row"><dt class="meta-k">Email</dt><dd class="meta-v">zongoemmaj@gmail.com</dd></div>
+      </dl>
+      <p class="certs">
+        Cisco — Introduction to Cybersecurity<br>
+        Orange Digital Center — Laravel<br>
+        Institut Burkinabè des Arts et Métiers
+      </p>
+    </div>
+    <div class="reveal" style="transition-delay:.1s">
+      <p class="about-p">
+        Licenciée en <strong>Technologie du Génie Informatique</strong> (Université Aube Nouvelle, 2021–2024),
+        je poursuis un <strong>Master 2 en Sécurité Informatique</strong> à l'Institut Burkinabè des Arts et Métiers.
+        Cette double formation me donne une vision complète : je sais construire des systèmes et les sécuriser.
+      </p>
+      <p class="about-p">
+        Mes expériences en entreprise m'ont permis de passer de la théorie à la pratique :
+        déploiement d'un <strong>SOC complet basé sur Wazuh</strong> avec alerting email et blocage automatique IP,
+        mise en place d'une <strong>infrastructure Zero Trust</strong> avec Teleport et JumpServer,
+        authentification réseau centralisée <strong>FreeRADIUS + 802.1X</strong> chez EXCELIS,
+        et développement d'applications métier pour la Brigade de Lutte contre la Cybercriminalité.
+      </p>
+      <p class="about-p">
+        Ma force : allier la maîtrise du développement (PHP, Laravel, Flutter, React) à des compétences
+        avancées en sécurité opérationnelle — SOC, SIEM, pentest, administration système Linux/Windows.
+        Je cherche à rejoindre une équipe ambitieuse pour contribuer à la cybersécurité en Afrique de l'Ouest.
+      </p>
+      <dl class="stat-grid">
+        <div class="stat-card"><dt class="stat-l">Stages réalisés</dt><dd class="stat-n">4+</dd></div>
+        <div class="stat-card"><dt class="stat-l">Projets réalisés</dt><dd class="stat-n">8+</dd></div>
+        <div class="stat-card"><dt class="stat-l">Règles Wazuh créées</dt><dd class="stat-n">15</dd></div>
+        <div class="stat-card"><dt class="stat-l">Outils maîtrisés</dt><dd class="stat-n">25+</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span class="divider-line"></span><span class="divider-star">✦</span><span class="divider-line"></span></div>
+
+<!-- ══ COMPÉTENCES ══ -->
+<section id="competences" class="section" aria-labelledby="title-competences">
+  <div class="section-label reveal">
+    <span class="s-num" aria-hidden="true">02</span><span class="s-line" aria-hidden="true"></span>
+    <h2 class="s-title" id="title-competences">Compétences</h2>
+  </div>
+  <div class="skill-grid">
+
+    <article class="skill-card reveal">
+      <span class="skill-icon" aria-hidden="true">🔭</span>
+      <h3 class="skill-title">SOC & SIEM</h3>
+      <ul class="tag-list">
+        <li class="tag">Wazuh v4.11.2</li>
+        <li class="tag">ClamAV</li>
+        <li class="tag">Grafana</li>
+        <li class="tag">Metabase</li>
+        <li class="tag">OpenSearch</li>
+        <li class="tag">MITRE ATT&CK</li>
+        <li class="tag">FIM inotify</li>
+        <li class="tag">Active Response</li>
+      </ul>
+    </article>
+
+    <article class="skill-card reveal" style="transition-delay:.05s">
+      <span class="skill-icon" aria-hidden="true">🛡️</span>
+      <h3 class="skill-title">Sécurité Réseau & Pentest</h3>
+      <ul class="tag-list">
+        <li class="tag">FreeRADIUS</li>
+        <li class="tag">802.1X / EAP</li>
+        <li class="tag">Nmap</li>
+        <li class="tag">Metasploit</li>
+        <li class="tag">Kali Linux</li>
+        <li class="tag">ModSecurity WAF</li>
+        <li class="tag">sqlmap</li>
+        <li class="tag">OWASP CRS</li>
+      </ul>
+    </article>
+
+    <article class="skill-card reveal" style="transition-delay:.10s">
+      <span class="skill-icon" aria-hidden="true">🖥️</span>
+      <h3 class="skill-title">Administration Système</h3>
+      <ul class="tag-list">
+        <li class="tag">Ubuntu Server 24</li>
+        <li class="tag">Windows Server 2022</li>
+        <li class="tag">Active Directory</li>
+        <li class="tag">GPO</li>
+        <li class="tag">pfSense</li>
+        <li class="tag">Nginx</li>
+        <li class="tag">OpenLDAP</li>
+        <li class="tag">Postfix SMTP</li>
+        <li class="tag">Samba / Kerberos</li>
+      </ul>
+    </article>
+
+    <article class="skill-card reveal" style="transition-delay:.15s">
+      <span class="skill-icon" aria-hidden="true">🔐</span>
+      <h3 class="skill-title">Accès Privilégiés & Zero Trust</h3>
+      <ul class="tag-list">
+        <li class="tag">Teleport v18</li>
+        <li class="tag">JumpServer v4.10</li>
+        <li class="tag">Certificats X.509</li>
+        <li class="tag">SSL/TLS</li>
+        <li class="tag">MSCHAPv2</li>
+        <li class="tag">LDAP</li>
+        <li class="tag">Docker Secrets</li>
+        <li class="tag">iptables / UFW</li>
+      </ul>
+    </article>
+
+    <article class="skill-card reveal" style="transition-delay:.20s">
+      <span class="skill-icon" aria-hidden="true">🐳</span>
+      <h3 class="skill-title">Conteneurisation & DevOps</h3>
+      <ul class="tag-list">
+        <li class="tag">Docker / Compose</li>
+        <li class="tag">Portainer</li>
+        <li class="tag">Ansible / Semaphore</li>
+        <li class="tag">Uptime Kuma</li>
+        <li class="tag">Rocket.Chat</li>
+        <li class="tag">Nginx Proxy Manager</li>
+        <li class="tag">Bash</li>
+        <li class="tag">Cron</li>
+      </ul>
+    </article>
+
+    <article class="skill-card reveal" style="transition-delay:.25s">
+      <span class="skill-icon" aria-hidden="true">💻</span>
+      <h3 class="skill-title">Développement Sécurisé</h3>
+      <ul class="tag-list">
+        <li class="tag">PHP / Laravel</li>
+        <li class="tag">Livewire</li>
+        <li class="tag">React</li>
+        <li class="tag">JavaScript</li>
+        <li class="tag">Flutter / Dart</li>
+        <li class="tag">Python</li>
+        <li class="tag">SQL / MySQL</li>
+        <li class="tag">Git / GitHub</li>
+      </ul>
+    </article>
+
+    <article class="skill-card reveal" style="transition-delay:.30s">
+      <span class="skill-icon" aria-hidden="true">🗄️</span>
+      <h3 class="skill-title">Gestion de parc & ITSM</h3>
+      <ul class="tag-list">
+        <li class="tag">GLPI</li>
+        <li class="tag">WordPress + WAF</li>
+        <li class="tag">MariaDB</li>
+        <li class="tag">LVM / fdisk</li>
+        <li class="tag">systemd</li>
+        <li class="tag">Beszel</li>
+        <li class="tag">PingCastle</li>
+      </ul>
+    </article>
+
+    <article class="skill-card reveal" style="transition-delay:.35s">
+      <span class="skill-icon" aria-hidden="true">⚡</span>
+      <h3 class="skill-title">Automatisation & Scripting</h3>
+      <ul class="tag-list">
+        <li class="tag">Bash scripting</li>
+        <li class="tag">Ansible playbooks</li>
+        <li class="tag">Cron jobs</li>
+        <li class="tag">JSON / API REST</li>
+        <li class="tag">Python parsing</li>
+        <!--<li class="tag">LDIF / LDAP</li>
+        <li class="tag">ed25519 SSH keys</li>-->
+      </ul>
+    </article>
+
+  </div>
+</section>
+
+<!-- ══ PROJETS ══ -->
+<div id="projets" class="projects-bg">
+  <div class="projects-inner">
+    <div class="section-label reveal">
+      <span class="s-num" aria-hidden="true">03</span><span class="s-line" aria-hidden="true"></span>
+      <h2 class="s-title">Expériences & Projets</h2>
+    </div>
+
+    <!-- PROJET 1 — SOC Wazuh -->
+    <article class="project-row reveal" aria-labelledby="p1-title">
+      <p class="p-year">2026</p>
+      <div>
+        <p class="p-badge">Mission Sécurité · SOC ·</p>
+        <h3 class="p-title" id="p1-title">Déploiement d'un SOC complet avec Wazuh, ClamAV et Active Response</h3>
+        <p class="p-desc">
+          Construction d'une infrastructure de sécurité de zéro à un SOC pleinement opérationnel.
+          Etape 1 : déploiement ClamAV avec automatisation Ansible/Semaphore et visualisation Grafana.
+          Etape 2 : SOC Wazuh v4.11.2 avec 15 règles personnalisées (dont MITRE T1548.003),
+          10 sources de logs actives, alerting email automatique (niveau ≥10 → Gmail via Postfix),
+          et blocage automatique IP par iptables (Active Response, timeout 10 min).
+          Etape 3 : évaluation comparative Metabase vs Dashboard Wazuh natif.
+          5 scénarios d'attaque simulés et documentés en kill chain complète.
+        </p>
+        <ul class="tag-list">
+          <li class="tag">Wazuh v4.11.2</li>
+          <li class="tag">ClamAV</li>
+          <li class="tag">Docker Compose</li>
+          <li class="tag">Ansible</li>
+          <li class="tag">Grafana</li>
+          <li class="tag">Postfix / Gmail</li>
+          <li class="tag">iptables</li>
+          <li class="tag">MITRE ATT&CK</li>
+          <li class="tag">FIM inotify</li>
+          <li class="tag">OpenSearch</li>
+        </ul>
+      </div>
+      <div class="p-links">
+        <!-- ✏️ Ajoutez vos liens GitHub quand vous mettrez le projet en ligne -->
+        <a href="#" class="btn-ghost" aria-label="Rapport SOC">Rapport →</a>
+        <a href="#" class="btn-ghost" aria-label="GitHub">GitHub →</a>
+      </div>
+    </article>
+
+    <!-- PROJET 2 — Infrastructure GoldenSite -->
+    <article class="project-row reveal" style="transition-delay:.08s" aria-labelledby="p2-title">
+      <p class="p-year">2026</p>
+      <div>
+        <p class="p-badge">Admin Réseau & Système ·</p>
+        <h3 class="p-title" id="p2-title">Infrastructure GoldenSite — Architecture Zero Trust complète</h3>
+        <p class="p-desc">
+          Conception et déploiement d'une infrastructure professionnelle complète sous VMware :
+          pfSense (pare-feu, DHCP, DNS, NAT), Active Directory + GPO sur Windows Server 2022,
+          audit AD avec PingCastle, serveur web Nginx sécurisé SSL/TLS + WAF ModSecurity (916 règles OWASP CRS),
+          WordPress + MariaDB, Docker (Portainer, NPM, OpenLDAP, Uptime Kuma, Rocket.Chat avec intégration LDAP),
+          gestion des accès privilégiés avec JumpServer v4.10 et Teleport v18 (certificats X.509 éphémères, Zero Trust).
+          Scan de secrets en clair et Docker Secrets implémentés.
+        </p>
+        <ul class="tag-list">
+          <li class="tag">pfSense</li>
+          <li class="tag">Active Directory</li>
+          <li class="tag">Nginx + ModSecurity</li>
+          <li class="tag">Docker / Compose</li>
+          <li class="tag">OpenLDAP</li>
+          <li class="tag">Teleport v18</li>
+          <li class="tag">JumpServer</li>
+          <li class="tag">Rocket.Chat</li>
+          <li class="tag">SSL/TLS OpenSSL</li>
+          <!--<li class="tag">LVM</li>-->
+        </ul>
+      </div>
+      <div class="p-links">
+        <a href="#" class="btn-ghost" aria-label="Rapport">Rapport →</a>
+        <a href="#" class="btn-ghost" aria-label="GitHub">GitHub →</a>
+      </div>
+    </article>
+
+    <!-- PROJET 3 — FreeRADIUS EXCELIS -->
+    <article class="project-row reveal" style="transition-delay:.12s" aria-labelledby="p3-title">
+      <p class="p-year">2025</p>
+      <div>
+        <p class="p-badge">Stage · EXCELIS · Sécurité Réseau</p>
+        <h3 class="p-title" id="p3-title">Authentification réseau centralisée FreeRADIUS + 802.1X — EXCELIS</h3>
+        <p class="p-desc">
+          Au sein du département Cartes et Partenariat d'EXCELIS, spécialiste en monétique bancaire,
+          déploiement d'un serveur FreeRADIUS sous Ubuntu Server intégré à l'Active Directory
+          via Samba/Winbind/Kerberos (protocole MSCHAPv2). Activation du contrôle d'accès 802.1X
+          sur switches HP et firewall Cisco Firepower 1100. Contrôle granulaire par groupes AD,
+          attribution IP statique par adresse MAC. Participation au processus sécurisé
+          de personnalisation des cartes bancaires (encodage puce, bande magnétique, impression sécurisée).
+        </p>
+        <ul class="tag-list">
+          <li class="tag">FreeRADIUS</li>
+          <li class="tag">Ubuntu Server</li>
+          <li class="tag">Active Directory</li>
+          <li class="tag">802.1X / EAP</li>
+          <li class="tag">Samba / Kerberos</li>
+          <li class="tag">Cisco Firepower 1100</li>
+          <li class="tag">MSCHAPv2</li>
+          <li class="tag">DHCP</li>
+        </ul>
+      </div>
+      <div class="p-links">
+        <a href="#" class="btn-ghost" aria-label="Rapport de stage">Rapport →</a>
+      </div>
+    </article>
+
+    <!-- PROJET 4 — Brigade : App Gestion Employés -->
+    <article class="project-row reveal" style="transition-delay:.16s" aria-labelledby="p4-title">
+      <p class="p-year">2024</p>
+      <div>
+        <p class="p-badge">Stage · Brigade Lutte Contre la Cybercriminalité</p>
+        <h3 class="p-title" id="p4-title">Application de gestion des employés — Brigade de Cybercriminalité</h3>
+        <p class="p-desc">
+          Conception et développement d'une application web sécurisée de gestion des ressources humaines
+          pour la Brigade de Lutte contre la Cybercriminalité (Mars–Juin 2024).
+          Gestion des profils employés, suivi des présences et génération de rapports administratifs.
+          <!-- ✏️ Complétez avec plus de détails si vous vous en souvenez -->
+        </p>
+        <ul class="tag-list">
+          <li class="tag">PHP</li>
+          <li class="tag">Laravel</li>
+          <li class="tag">MySQL</li>
+          <li class="tag">HTML / CSS</li>
+          <li class="tag">JavaScript</li>
+        </ul>
+      </div>
+      <div class="p-links">
+        <a href="#" class="btn-ghost">GitHub →</a>
+      </div>
+    </article>
+
+    <!-- PROJET 5 — Brigade : App Gestion Stock -->
+    <article class="project-row reveal" style="transition-delay:.20s" aria-labelledby="p5-title">
+      <p class="p-year">2023</p>
+      <div>
+        <p class="p-badge">Stage · Brigade Lutte Contre la Cybercriminalité</p>
+        <h3 class="p-title" id="p5-title">Application de gestion de stock — Brigade de Cybercriminalité</h3>
+        <p class="p-desc">
+          Développement d'une application web de gestion des stocks et inventaires
+          (Juillet–Septembre 2023). Suivi des entrées/sorties de matériel,
+          alertes de seuil et génération de rapports d'inventaire.
+        </p>
+        <ul class="tag-list">
+          <li class="tag">PHP</li>
+          <li class="tag">Laravel</li>
+          <li class="tag">MySQL</li>
+          <li class="tag">Bootstrap</li>
+        </ul>
+      </div>
+      <div class="p-links">
+        <a href="#" class="btn-ghost">GitHub →</a>
+      </div>
+    </article>
+
+    <!-- PROJET 6 — GLPI -->
+    <article class="project-row reveal" style="transition-delay:.24s" aria-labelledby="p6-title">
+      <p class="p-year">2025</p>
+      <div>
+        <p class="p-badge">Projet Personnel · Administration ITSM</p>
+        <h3 class="p-title" id="p6-title">Administration complète de GLPI sur Ubuntu Server</h3>
+        <p class="p-desc">
+          Cycle de vie complet de GLPI (solution ITSM open source) :
+          installation sur Ubuntu Server (Apache, PHP, MySQL),
+          mise à jour automatisée v10.0.18 → v10.0.22 via script Bash,
+          sauvegarde automatique quotidienne de la base de données,
+          et procédures documentées de restauration de backup.
+        </p>
+        <ul class="tag-list">
+          <li class="tag">GLPI</li>
+          <li class="tag">Ubuntu Server</li>
+          <li class="tag">Bash</li>
+          <li class="tag">MySQL</li>
+          <li class="tag">Apache</li>
+          <li class="tag">Cron</li>
+        </ul>
+      </div>
+      <div class="p-links">
+        <a href="#" class="btn-ghost">GitHub →</a>
+        <a href="#" class="btn-ghost">Docs →</a>
+      </div>
+    </article>
+
+  </div>
+</div>
+
+<!-- ══ CERTIFICATIONS ══ -->
+<section id="certifications" class="section" aria-labelledby="title-certs">
+  <div class="section-label reveal">
+    <span class="s-num" aria-hidden="true">04</span><span class="s-line" aria-hidden="true"></span>
+    <h2 class="s-title" id="title-certs">Certifications & Formations</h2>
+  </div>
+  <div class="cert-grid">
+
+    <div class="cert-card reveal">
+      <span class="cert-icon">🏅</span>
+      <div>
+        <div class="cert-org">Cisco Networking Academy</div>
+        <div class="cert-name">Introduction to Cybersecurity</div>
+        <div class="cert-date">Badge numérique vérifié · Décembre 2025</div>
+        <p class="cert-desc">Concepts fondamentaux : menaces, vulnérabilités, défense et détection d'intrusion.</p>
+      </div>
+    </div>
+
+    <div class="cert-card reveal" style="transition-delay:.06s">
+      <span class="cert-icon">🎓</span>
+      <div>
+        <div class="cert-org">Orange Digital Center</div>
+        <div class="cert-name">Développement web avec Laravel</div>
+        <div class="cert-date">Février 2024</div>
+        <p class="cert-desc">Formation pratique au développement d'applications web modernes et sécurisées.</p>
+      </div>
+    </div>
+
+    <div class="cert-card reveal" style="transition-delay:.12s">
+      <span class="cert-icon">🏛️</span>
+      <div>
+        <div class="cert-org">Institut Burkinabè des Arts et Métiers</div>
+        <div class="cert-name">Master 2 en Sécurité Informatique</div>
+        <div class="cert-date">En cours · 2024 – 2026</div>
+        <p class="cert-desc">Sécurité des SI, cryptographie, forensics, gestion des risques et SOC.</p>
+      </div>
+    </div>
+
+    <div class="cert-card reveal" style="transition-delay:.18s">
+      <span class="cert-icon">📜</span>
+      <div>
+        <div class="cert-org">Université Aube Nouvelle</div>
+        <div class="cert-name">Licence — Technologie du Génie Informatique</div>
+        <div class="cert-date">2021 – 2024</div>
+        <p class="cert-desc">Développement logiciel, réseaux, bases de données et génie logiciel.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<div id="contact" class="contact-bg">
+  <div class="contact-inner">
+    <div class="reveal">
+      <p class="c-over">— 05 / Travaillons ensemble —</p>
+      <h2 class="c-h">Prête à relever<br><em>vos défis.</em></h2>
+      <!--<p class="c-sub">Disponible pour un stage de fin d'études, une alternance ou un premier poste en sécurité informatique ou administration système.</p>-->
+    </div>
+    <form class="form-wrap reveal" id="contact-form" aria-label="Formulaire de contact" style="transition-delay:.12s">
+      <div class="form-row">
+        <div class="field">
+          <label for="inp-name" class="field-label">Votre nom</label>
+          <input type="text" id="inp-name" name="name" class="input" placeholder="Votre nom" maxlength="100" required autocomplete="name">
+          <span class="field-error" id="err-name" role="alert" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label for="inp-email" class="field-label">Votre email</label>
+          <input type="email" id="inp-email" name="email" class="input" placeholder="vous@exemple.com" maxlength="150" required autocomplete="off">
+          <span class="field-error" id="err-email" role="alert" aria-live="polite"></span>
+        </div>
+      </div>
+      <div class="field">
+        <label for="inp-msg" class="field-label">Votre message</label>
+        <textarea id="inp-msg" name="message" class="input" rows="5" placeholder="Bonjour, je souhaite..." maxlength="2000" required></textarea>
+        <span class="field-error" id="err-msg" role="alert" aria-live="polite"></span>
+      </div>
+      <div style="text-align:center">
+        <button type="submit" class="btn-gold">Envoyer le message ✦</button>
+      </div>
+    </form>
+    <!-- ✏️ Remplacez # par vos vrais liens -->
+    <nav class="social-row reveal" style="transition-delay:.2s" aria-label="Réseaux sociaux">
+      <a href="https://github.com/VOTRE_USERNAME" target="_blank" rel="noopener noreferrer" class="soc">GitHub</a>
+      <a href="https://linkedin.com/in/VOTRE_PROFIL" target="_blank" rel="noopener noreferrer" class="soc">LinkedIn</a>
+      <a href="mailto:zongoemmaj@gmail.com" class="soc">Email</a>
+      <a href="#" target="_blank" rel="noopener noreferrer" class="soc">CV PDF</a>
+    </nav>
+  </div>
+</div>
+
+<footer role="contentinfo">✦ Emma Jeannette Rogomnoma Zongo · Portfolio 2025–2026 · Sécurité Informatique & Administration Système ✦</footer>
+
+<script>
+'use strict';
+const TARGETS=['hero','propos','competences','projets','certifications','contact'];
+function goTo(id){if(TARGETS.includes(id))document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'})}
+document.querySelectorAll('[data-target]').forEach(el=>el.addEventListener('click',()=>goTo(el.dataset.target)));
+let ticking=false;
+window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{let cur=TARGETS[0];TARGETS.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-130)cur=id});document.querySelectorAll('.nav-link').forEach((l,i)=>{const on=TARGETS[i]===cur;l.classList.toggle('active',on);l.setAttribute('aria-current',on?'page':'false')});ticking=false});ticking=true}},{passive:true});
+if('IntersectionObserver' in window){const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el))}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'))}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#x27;'}[c]))}
+function isEmail(e){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)}
+function vf(inp,err,fn){const msg=fn(inp.value.trim());err.textContent=msg;inp.classList.toggle('is-invalid',!!msg);inp.classList.toggle('is-valid',!msg);return!msg}
+let last=0;
+document.getElementById('contact-form').addEventListener('submit',async e=>{
+  e.preventDefault();
+  if(Date.now()-last<60000){alert('Attendez 60s avant de renvoyer.');return}
+  const n=document.getElementById('inp-name'),em=document.getElementById('inp-email'),m=document.getElementById('inp-msg');
+  const ok=vf(n,document.getElementById('err-name'),v=>!v?'Requis.':v.length>100?'Trop long.':'')+
+    vf(em,document.getElementById('err-email'),v=>!v?'Requis.':!isEmail(v)?'Email invalide.':'')+
+    vf(m,document.getElementById('err-msg'),v=>!v?'Requis.':v.length<10?'Trop court.':'');
+  if(ok<3)return;
+  const btn=e.target.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Envoi…';
+  /* ✏️ Pour un vrai envoi : remplacez par fetch('https://formspree.io/f/VOTRE_ID', ...) */
+  await new Promise(r=>setTimeout(r,800));last=Date.now();
+  const wrap=document.createElement('div');wrap.style.cssText='text-align:center;padding:48px 0';
+  const star=document.createElement('div');star.textContent='✦';star.style.cssText='font-size:40px;margin-bottom:16px;color:#C07830';
+  const title=document.createElement('h3');title.style.cssText="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;color:#F2E8D9;margin-bottom:10px";title.textContent='Message envoyé !';
+  const sub=document.createElement('p');sub.style.cssText="font-family:'Jost',sans-serif;font-size:13px;color:#C09060";sub.textContent='Merci '+escapeHTML(n.value.trim())+', je vous répondrai très bientôt.';
+  wrap.append(star,title,sub);e.target.parentElement.replaceChild(wrap,e.target);
+});
+</script>
+</body>
+</html>
