@@ -693,8 +693,12 @@ document.getElementById('contact-form').addEventListener('submit',async e=>{
     vf(m,document.getElementById('err-msg'),v=>!v?'Requis.':v.length<10?'Trop court.':'');
   if(ok<3)return;
   const btn=e.target.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Envoi…';
-  /* ✏️ Pour un vrai envoi : remplacez par fetch('https://formspree.io/f/VOTRE_ID', ...) */
-  await new Promise(r=>setTimeout(r,800));last=Date.now();
+  const res = await fetch('https://formspree.io/f/xvznygga', {
+    method: 'POST',
+    body: new FormData(e.target),
+    headers: { 'Accept': 'application/json' }
+  });
+  if (!res.ok) throw new Error('Erreur envoi');
   const wrap=document.createElement('div');wrap.style.cssText='text-align:center;padding:48px 0';
   const star=document.createElement('div');star.textContent='✦';star.style.cssText='font-size:40px;margin-bottom:16px;color:#C07830';
   const title=document.createElement('h3');title.style.cssText="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;color:#F2E8D9;margin-bottom:10px";title.textContent='Message envoyé !';
